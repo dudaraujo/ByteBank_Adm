@@ -13,14 +13,26 @@ namespace ByteBank_Adm.Funcionarios
         public string Cpf { get; set; }
         public double Salario { get; set; }
 
-        //private int _cargo;
+        //Definindo o set como private pois é um incremento que não deve ser setado na mão
+        public static int totalFuncionario { get; private set; }
 
-       
-
-        public double getBonificacao()
+        public Funcionario()
         {
-            return Salario;
+            totalFuncionario++;
+            Console.WriteLine("Criando Funcionário");
         }
+
+
+        //O virtual informa que a classe filha pode ser redefinida
+        public virtual double getBonificacao()
+        {
+            return Salario * 0.10;
+        }
+
+        public virtual double PremioSemestral()
+        {
+            return Salario * 0.20; 
+        } 
 
         
     }

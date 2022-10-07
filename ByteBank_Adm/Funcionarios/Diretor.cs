@@ -6,15 +6,31 @@ using System.Threading.Tasks;
 
 namespace ByteBank_Adm.Funcionarios
 {
-    public class Diretor
+    //Diretor é herença de Funcionario
+    public class Diretor: Funcionario
     {
-        public string Nome { get; set; }
-        public string Cpf { get; set; }
-        public  double Salario { get; set; }
+     
+        //Esta usando os mesmo campos de Funcionario
 
-        public double getBonificacao()
+        // O override avisa que essa classe é uma reescrita ta classe pai
+        public override double getBonificacao()
         {
-            return Salario;
+            //return Salario + (Salario * 0.10);
+
+            //Calculando 110%, ou seja, os 100% mais os 10% que já é calculado
+            //para funcionário.
+            //Reaproveitando o código
+            return Salario + base.getBonificacao();
+        }
+
+        public override double PremioSemestral()
+        {
+            return Salario + base.PremioSemestral();
+        }
+
+        public Diretor()
+        {
+            Console.WriteLine("Criando diretor");
         }
     }
 }
