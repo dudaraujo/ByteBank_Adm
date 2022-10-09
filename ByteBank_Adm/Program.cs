@@ -4,24 +4,21 @@ using ByteBank_Adm.Funcionarios;
 using ByteBank_Adm.Utilitarios;
 
 GerenciadorBonificacao gerenciador = new GerenciadorBonificacao();
-Funcionario duda = new Funcionario();
+Funcionario duda = new Funcionario("42135624845", 2000);
 Console.WriteLine("Total de Funcionários: " + Funcionario.totalFuncionario);
 duda.Nome = "Maria Eduarda";
-duda.Cpf = "42135624845";
-duda.Salario = 2000;
+
 
 
 Console.WriteLine("Bonificação duda: " + duda.getBonificacao());
 
-Diretor maria = new Diretor();
+Diretor maria = new Diretor("12345678909", 5000);
 Console.WriteLine("Total de Funcionários: " + Funcionario.totalFuncionario);
 maria.Nome = "Eduarda";
-maria.Cpf = "12345678909";
-maria.Salario = 5000;
 
 
 
-Funcionario Gabriel = new Diretor();
+Funcionario Gabriel = new Diretor("85296378945", 2000);
 Console.WriteLine("Total de Funcionários: " + Funcionario.totalFuncionario);
 
 Console.WriteLine("Bonificação Maria: " + maria.getBonificacao());
@@ -33,16 +30,24 @@ gerenciador.Registrar(maria);
 
 Console.WriteLine("Total de Bonificação: " + gerenciador.getBonificacao());
 
-Funcionario teste1 = new Funcionario();
+Funcionario teste1 = new Funcionario("25841236585", 100);
 Console.WriteLine("Total de Funcionários: " + Funcionario.totalFuncionario);
-teste1.Salario = 100;
 
 
-Funcionario teste2 = new Diretor();
+Funcionario teste2 = new Diretor("78945612396", 100);
 Console.WriteLine("Total de Funcionários: " + Funcionario.totalFuncionario);
-teste2.Salario = 100;
+
 
 
 Console.WriteLine("Premio semestral funcionário teste1: " + teste1.PremioSemestral());
 Console.WriteLine("Premio semestral diretor teste2: " + teste2.PremioSemestral());
+
+Console.WriteLine("Salario funcionária duda: " + duda.Salario);
+duda.AumentaSalario();
+Console.WriteLine("Salario duda após o aumento: " + duda.Salario);
+
+Console.WriteLine("Salario diretora maria: " + maria.Salario);
+maria.AumentaSalario();
+Console.WriteLine("Salaria maria após o aumento: " + maria.Salario);
+
 

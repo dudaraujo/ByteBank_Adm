@@ -10,14 +10,18 @@ namespace ByteBank_Adm.Funcionarios
     {
         
         public string Nome { get; set; }
-        public string Cpf { get; set; }
-        public double Salario { get; set; }
+        public string Cpf { get; private set; }
+
+        //Com o protected, só é possível setar informações nesse campo pela própria classe ou por classes filhas
+        public double Salario { get; protected set; }
 
         //Definindo o set como private pois é um incremento que não deve ser setado na mão
         public static int totalFuncionario { get; private set; }
 
-        public Funcionario()
+        public Funcionario(string cpf, double salario)
         {
+            this.Salario = salario;
+            this.Cpf = cpf;
             totalFuncionario++;
             Console.WriteLine("Criando Funcionário");
         }
@@ -33,6 +37,11 @@ namespace ByteBank_Adm.Funcionarios
         {
             return Salario * 0.20; 
         } 
+
+        public virtual void AumentaSalario()
+        {
+            this.Salario *= 1.1;
+        }
 
         
     }

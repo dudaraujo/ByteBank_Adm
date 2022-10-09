@@ -12,7 +12,7 @@ namespace ByteBank_Adm.Funcionarios
      
         //Esta usando os mesmo campos de Funcionario
 
-        // O override avisa que essa classe é uma reescrita ta classe pai
+        // O override avisa que essa classe é uma reescrita da classe pai
         public override double getBonificacao()
         {
             //return Salario + (Salario * 0.10);
@@ -28,9 +28,14 @@ namespace ByteBank_Adm.Funcionarios
             return Salario + base.PremioSemestral();
         }
 
-        public Diretor()
+        public Diretor(string cpf, double salario) : base(cpf, salario)
         {
             Console.WriteLine("Criando diretor");
+        }
+
+        public override void AumentaSalario()
+        {
+            this.Salario *= 1.15;
         }
     }
 }
