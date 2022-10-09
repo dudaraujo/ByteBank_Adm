@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ByteBank_Adm.Funcionarios
 {
-    public class Funcionario
+    //Quando uma classe é abstrata, não é possível criar objetos dela
+    //Ela apenas serve como base para a criação de outras classes 
+    public abstract class Funcionario
     {
         
         public string Nome { get; set; }
@@ -28,21 +30,24 @@ namespace ByteBank_Adm.Funcionarios
 
 
         //O virtual informa que a classe filha pode ser redefinida
-        public virtual double getBonificacao()
-        {
-            return Salario * 0.10;
-        }
+        //public virtual double getBonificacao()
+        //{
+        //    return Salario * 0.10;
+        //}
+
+        ///O abstract informa que esse método é abstrato, todo objeto/classe filha dessa classe precisa ter ele 
+        ///mas o bloco de código dentro dele só é definido na classe filha
+        public abstract double getBonificacao();
+       
 
         public virtual double PremioSemestral()
         {
             return Salario * 0.20; 
-        } 
-
-        public virtual void AumentaSalario()
-        {
-            this.Salario *= 1.1;
         }
 
+        public abstract void AumentaSalario();
+
+        
         
     }
 }
